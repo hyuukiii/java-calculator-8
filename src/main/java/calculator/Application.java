@@ -10,9 +10,14 @@ public class Application {
         // "1, 2, 3" ==> 을 구분자에 따라 다른 문자열 변환
         String[] numbers = input.split("[,:;]") ;
 
+        if (input.startsWith("//")) {
+            int    endString   = input.indexOf("\n");
+            String delimeters  = input.substring(2,endString);
+            String startNumIndex   = input.substring(endString +1);
+        }
+
         // 반복문 밖에서 초기화 하기
         int parseSum = 0;
-
         for (String number : numbers) {
             int parseNums = Integer.parseInt(number);
             parseSum += parseNums;
